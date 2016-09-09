@@ -15,8 +15,5 @@
         public function sendRoomInfo($roomName,$password,$location,$hostName,$num,$eTime){
 
         }
-        public function sendBackRoomID($userList){
-
-        }
     }
 ?>

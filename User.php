@@ -7,10 +7,10 @@ public class User {
     $message;
     $userID;
 
-    public function sendUserInfo($name,$nickName,$gender,$birthday,$message){
+    public function __construct($name,$nickName,$gender,$birthday,$message){
 
     }
-    public function sendBackRoomID($userID){
+    public function sendUserInfo($userID){
 
     }
 }

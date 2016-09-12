@@ -31,5 +31,21 @@ public class User {
 	public void sendBackRoomID(int userID) {
 
 	}
+	public String getName(){
+		return this.name;
+	}
+	public String getNickName(){
+		return this.nickName;
+	}
+	public byte getGender(){
+		return this.gender;
+	}
+	public Date GetBirthday(){
+		return this.birthday;
+	}
+	public String getMessage(){
+		return this.message;
+	}
+
 
 }

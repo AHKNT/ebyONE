@@ -22,5 +22,4 @@ public class Submit {
 	public void roomSubmit(String message, int roomID) {
 
 	}
-
 }

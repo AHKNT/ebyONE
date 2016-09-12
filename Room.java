@@ -25,10 +25,14 @@ public class Room {
 	 * 
 	 * 
 	 */
+	//部屋立て 
 	public int sendRoomInfo(String roomName, String password, String hostName, int num, double latitude, double longitude, int time) {
-		return 0;
+		DBManager dbm = new DBManager();
+		int this.roomID = dbm.makeRoom(roomName,password,hostName,num,latitude,longitude,time);
+		return this.roomID;
 	}
-
+	
+	//アプリ側にRoomIDを送信
 	public void sendBackRoomID(int roomID) {
 
 	}

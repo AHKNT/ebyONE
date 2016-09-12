@@ -11,6 +11,16 @@ public class Reciever {
 	/**
 	 * ArrayList<Socket>
 	 */
-	private ArrayList socketList;
+	private ArrayList<socket> socketList;
+
+	//SocketListにソケットを追加する
+	public void addSocketList(Socket socket){
+
+	}
+
+	//スレッドスタートする
+	public void threadStart(Transfer transfer){
+
+	}
 
 }

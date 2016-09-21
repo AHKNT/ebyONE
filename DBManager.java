@@ -11,18 +11,24 @@ import java.util.HashMap;
 
 public class DBManager{
 	
-	private final String URL = "jdbc:mysql://localhost/ebyONE?useUnicode=true&characterEncoding=utf8";
-	private final String USERNAME = "player";
-	private final String PASSWORD = "password";
+	private final String URL = "jdbc:mysql://153.122.108.205:3306/ebyONE?useUnicode=true&characterEncoding=utf8";
+	private final String USERNAME = "root";
+	private final String PASSWORD = "ebyONEpass";
 	private Connection connection;
 	
 	//データーベース接続
 	public void dbConnect(){
 		try{
+			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(URL, USERNAME, PASSWORD); 
 		}catch(SQLException e){
 			e.printStackTrace();
 			System.out.println("接続失敗");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("ドライバの読み込み失敗");
+		}catch(Exception e){
+			System.out.println("なんかエラーっぽいよ？");
 		}
 	}
 	//データベース切断
@@ -45,7 +51,7 @@ public class DBManager{
 			dbConnect();
 			Statement stmt = connection.createStatement();
 			String sql ="INSERT INTO Question (QContent, GroupID) VALUES ('" + qContent + "', '" + Integer.toString(groupID) + "')";
-			System.out.println(sql);
+			//System.out.println(sql);
 			stmt.executeUpdate(sql);
 		}catch(SQLException e){
 			System.out.println("質問の登録失敗");
@@ -320,6 +326,23 @@ public class DBManager{
 			e.printStackTrace();
 		}	
 		return roomID;
+	}
+	
+	//接続テスト用
+	public void insertTop(int topID,String name){
+		try{
+			dbConnect();
+			Statement stmt = connection.createStatement();
+			System.out.println("できた。");
+			String sql ="INSERT INTO Top(TopID,Name) VALUES('" + topID + "','" + name + "')";
+			stmt.executeUpdate(sql);
+		}catch(SQLException e){
+			System.out.println("");
+			e.printStackTrace();
+		}finally{
+			dbDisconnect();
+		}
+		
 	}
 
 }
